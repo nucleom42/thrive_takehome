@@ -23,7 +23,14 @@ As intended for running console application need to trigger [challenge.rb](chall
 ```console
 ruby challenge.rb
 ```
-Follow simple Q&A suggested int the app for output result to target txt file. 
+Follow simple Q&A suggested int the app for output result to target txt file.
+
+Run basic unit test for Reports::Company::Txt service, which is basically assemble context for writing for each company 
+
+```console
+rspec text_spec.rb  # run basic unit test
+```
+
 ## Flow examples
 ![flow_exmaple.png](flow_exmaple.png)
 
@@ -33,7 +40,7 @@ Follow simple Q&A suggested int the app for output result to target txt file.
 
 ## Notes
 - Unit tests and manual testing is available. So that can prove correctness in some fashion.
-- Code might be not the cleanest and test coverage only covered base one record assembling case. But I hope it brings main idea.
+- Code might be not the cleanest and test coverage only covered base one record assembling case. But I hope it brings some main idea.
 
 ## THANK YOU!
 ![](https://media.giphy.com/media/JabEe2N1Eoln076wiC/giphy.gif)
