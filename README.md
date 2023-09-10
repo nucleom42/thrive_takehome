@@ -10,7 +10,7 @@ oleg.saltykov@gmail.com
 
 ## Build instruction:
 
-This application built using using pure Ruby 3.1.2 with several 
+This application built using using pure Ruby 3.1.2 (no db all in memory) with several 
 application dependencies listed at the [Gemfile](Gemfile)
 
 For starting given rails application locally it is required to run next console commands:
@@ -23,7 +23,7 @@ As intended for running console application need to trigger [challenge.rb](chall
 ```console
 ruby challenge.rb
 ```
-Follow simple Q&A suggested int the app for output result to target txt file.
+Follow simple Q&A prompts suggested in the app for outputing result to target txt file.
 
 Run basic unit test for Reports::Company::Txt service, which is basically assemble context for writing for each company 
 
