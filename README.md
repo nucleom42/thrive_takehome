@@ -10,7 +10,7 @@ oleg.saltykov@gmail.com
 
 ## Build instruction:
 
-This application built using using Ruby 3.1.2 with several 
+This application built using using pure Ruby 3.1.2 with several 
 application dependencies listed at the [Gemfile](Gemfile)
 
 For starting given rails application locally it is required to run next console commands:
