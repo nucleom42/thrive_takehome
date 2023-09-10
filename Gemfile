@@ -12,3 +12,5 @@ gem 'validy', require: true
 gem 'singleton', require: true
 # debugging
 gem 'pry'
+# unit testing
+gem 'rspec'

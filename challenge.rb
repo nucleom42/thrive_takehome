@@ -1,46 +1,35 @@
-# enable json parsing
-require 'json'
-# explicitly set the load path out of bundled gems
-require 'bundler/setup'
-Bundler.require(:default)
 
-# autoload all rbs
-root_directory = File.dirname(__FILE__)
-Dir.glob("#{root_directory}/**/*.rb").each do |file|
-  next if file == "./challenge.rb"
-
-  require file
-end
+require './configuration'
 
 # run config
 Configuration.instance.init
 
-class Challenge
-  def initialize
-    # parsing
-    Parsers::Json::Company.new("companies.json").call
-    Parsers::Json::User.new("users.json").call
-  end
-
-  def out
-    # assemble content to write
-    content_to_write = "\n"
-    Models::Company.all.values.each { |company| content_to_write << Reports::Company::Txt.new(company).assemble }
-
-    # write content to output.txt
-    file_path = "output.txt"
-    bytes = File.open(file_path, "w") do |file|
-      file.write(content_to_write)
-    end
-
-    # print out result
-    puts
-    puts("\e[32m #{bytes} bytes successfully written to #{file_path}\e[0m")
-
-  rescue => e
-    puts("\e[31m unexpected error: #{e.message}")
-  end
+def exit_prog
+  puts "\e[37m Good bye!\e[0m"
+  exit
 end
 
-# main app run
-Challenge.new.out
+# console app
+loop do
+  puts "\e[37mWelcome to the Thrive Takehome console Application!\e[0m"
+  print "Please type (g) to start it or anything to quit: "
+  choice = gets.chomp.downcase
+  exit_prog if choice != "g"
+
+  print "Do you want to load output from 'companies.json', 'users.json' files to {your_name}.txt file (y/n)? "
+  choice = gets.chomp.downcase
+  exit_prog if choice != "y"
+
+  print "Please type file name: "
+  file = gets.chomp.downcase
+  unless file[/[a-z\-_]+.txt$/]
+    puts("\e[31m wrong file name\e[0m")
+    exit_prog
+  end
+
+  FileProcessor.new.out(file)
+
+  print "Do you want to quit (y/n)? "
+  choice = gets.chomp.downcase
+  exit_prog if choice == "y"
+end
