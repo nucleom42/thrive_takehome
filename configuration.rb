@@ -11,7 +11,6 @@ class Configuration
     # enable json parsing
     require 'json'
     # autoload all rbs
-
     root_directory = File.dirname(__FILE__)
     Dir[File.join(root_directory, '**', '*.rb')].each do |file|
       next if file.include?("challenge.rb")
