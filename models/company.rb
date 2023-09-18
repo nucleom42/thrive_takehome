@@ -67,14 +67,14 @@ module Models
         look_up_property = params.keys.first
         look_up_value = params.values.first
 
-        repo.all.find { |id, entity| entity if entity.send(look_up_property) == look_up_value }
+        repo.all.find { |_, entity| entity if entity.send(look_up_property) == look_up_value }
       end
 
       def where(params = {})
         look_up_property = params.keys.first
         look_up_value = params.values.first
 
-        repo.all.select { |id, entity| entity if entity.send(look_up_property) == look_up_value }.values
+        repo.all.select { |_, entity| entity if entity.send(look_up_property) == look_up_value }.values
       end
 
       def repo

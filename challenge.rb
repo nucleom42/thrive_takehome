@@ -26,7 +26,7 @@ loop do
     puts("\e[31m wrong file name\e[0m")
     exit_prog
   end
-
+  # service that parses jsons, persist it in repos and write assembled lines in text file
   FileProcessor.new.out(file)
 
   print "Do you want to quit (y/n)? "

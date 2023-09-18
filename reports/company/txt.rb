@@ -7,6 +7,7 @@ module Reports
         @total = @company.users.sum { |user| user.active_status ? (@company.top_up + user.tokens) - user.tokens : 0 }
       end
 
+      # nethod that assemble string out of the company
       def assemble
         return "\n\n" if @total.zero?
 
